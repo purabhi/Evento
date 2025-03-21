@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = "postgresql://postgres:ILJoWFcetVkXKFYxplFKkauCvlGUJKFU@switchyard.proxy.rlwy.net:23999/railway/eventsdb"
+  directUrl = "postgresql://postgres:ILJoWFcetVkXKFYxplFKkauCvlGUJKFU@switchyard.proxy.rlwy.net:23999/railway/eventsdb"
+}
+
+model eventoEvent {
+  id            Int      @id @default(autoincrement())
+  name          String
+  slug          String   @unique
+  city          String
+  location      String
+  date          DateTime
+  organizerName String
+  imageUrl      String
+  description   String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
